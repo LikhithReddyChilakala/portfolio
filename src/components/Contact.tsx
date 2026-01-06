@@ -84,7 +84,7 @@ const Contact = () => {
                 rel={card.id !== 'email' ? 'noopener noreferrer' : undefined}
                 className={`
                   relative p-6 rounded-xl
-                  bg-card/80 backdrop-blur-sm
+                  bg-card/90 backdrop-blur-md
                   border ${card.borderColor}
                   shadow-lg ${card.glowColor}
                   hover:scale-[1.02] transition-all duration-300
@@ -116,7 +116,7 @@ const Contact = () => {
 
           {/* Right Column: Large Form Card */}
           <div className="h-full">
-            <div className="h-full p-8 rounded-xl bg-card/80 backdrop-blur-sm border border-primary/30 shadow-lg shadow-primary/10 flex flex-col">
+            <div className="h-full p-8 rounded-xl bg-card/90 backdrop-blur-md border border-primary/30 shadow-lg shadow-primary/10 flex flex-col">
               {/* Badge */}
               <div className="flex justify-end mb-4">
                 <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">

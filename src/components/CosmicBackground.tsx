@@ -304,6 +304,22 @@ const CosmicBackground = () => {
         </svg>
       </div>
 
+      {/* Layer 4: Dawn Sky Gradient (Contact Section) */}
+      <div 
+        className="fixed bottom-0 left-0 right-0 -z-11 pointer-events-none transition-opacity duration-700"
+        style={{ 
+          opacity: skylineOpacity,
+          height: '50vh',
+          background: `linear-gradient(
+            to bottom,
+            #1a2a40 0%,
+            #152238 30%,
+            #121a28 60%,
+            #121212 100%
+          )`,
+        }}
+      />
+
       {/* Layer 4: South Indian Town Skyline Silhouette */}
       <div 
         className="fixed bottom-0 left-0 right-0 -z-10 pointer-events-none transition-opacity duration-700"
@@ -319,9 +335,8 @@ const CosmicBackground = () => {
         >
           <defs>
             <linearGradient id="skylineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#000000" stopOpacity="0" />
-              <stop offset="20%" stopColor="#000000" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#000000" stopOpacity="1" />
+              <stop offset="0%" stopColor="#0f1724" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#0f1724" stopOpacity="1" />
             </linearGradient>
           </defs>
           
@@ -420,11 +435,11 @@ const CosmicBackground = () => {
                L1400,130 L1402,180
                
                L1440,180 L1440,200 Z"
-            fill="#000000"
+            fill="#0f1724"
           />
           
-          {/* Decorative temple lights */}
-          <g fill="#39FF14" opacity="0.2">
+          {/* Decorative temple lights - brighter for dawn */}
+          <g fill="#39FF14" opacity="0.35">
             {/* Gopuram 1 lights */}
             <circle cx="175" cy="60" r="2" />
             <circle cx="172" cy="75" r="1.5" />
@@ -444,8 +459,8 @@ const CosmicBackground = () => {
             <circle cx="1175" cy="130" r="1.5" />
           </g>
           
-          {/* House window lights */}
-          <g fill="#FFD700" opacity="0.15">
+          {/* House window lights - warmer for dawn */}
+          <g fill="#FFD700" opacity="0.25">
             <rect x="72" y="158" width="4" height="5" />
             <rect x="232" y="162" width="3" height="4" />
             <rect x="270" y="165" width="3" height="4" />
@@ -457,6 +472,16 @@ const CosmicBackground = () => {
             <rect x="1295" y="162" width="3" height="4" />
             <rect x="1345" y="165" width="3" height="4" />
           </g>
+          
+          {/* Dawn horizon glow */}
+          <defs>
+            <linearGradient id="dawnGlow" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stopColor="#FF4500" stopOpacity="0" />
+              <stop offset="50%" stopColor="#FF6B35" stopOpacity="0.08" />
+              <stop offset="100%" stopColor="#FFD700" stopOpacity="0.12" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="1440" height="100" fill="url(#dawnGlow)" />
         </svg>
       </div>
 
