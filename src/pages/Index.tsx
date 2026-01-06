@@ -1,13 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from 'react-helmet-async';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Projects from '@/components/Projects';
+import Contact from '@/components/Contact';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>Likhith Reddy Chilakala | Java Backend Developer</title>
+        <meta
+          name="description"
+          content="Java Backend Developer focused on value creation. Building unique solutions with discipline and precision. View my portfolio and projects."
+        />
+        <meta name="keywords" content="Java Developer, Backend Developer, Software Engineer, Likhith Reddy, Portfolio" />
+        <meta property="og:title" content="Likhith Reddy Chilakala | Java Backend Developer" />
+        <meta property="og:description" content="Java Backend Developer focused on value creation and building unique solutions." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://likhithreddy.dev" />
+      </Helmet>
+
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Projects />
+          <Contact />
+        </main>
       </div>
-    </div>
+    </>
   );
 };
 
