@@ -37,15 +37,14 @@ const Hero = () => {
               style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
             >
               <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-serif font-bold text-foreground leading-[1.1] mb-1">
-                Hi, my
-              </span>
-              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-serif font-bold text-foreground leading-[1.1]">
-                name is{' '}
+                Hi,{' '}
                 <span className="text-primary relative inline-block">
-                  Likhith
+                  Likhith Reddy Chilakala
                   <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-zen-neon" />
                 </span>
-                <span className="text-zen-neon">.</span>
+              </span>
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-serif font-bold text-foreground leading-[1.1]">
+                here<span className="text-zen-neon">.</span>
               </span>
             </h1>
 
