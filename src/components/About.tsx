@@ -21,24 +21,28 @@ const timeline = [
     title: 'BITSoM',
     description: 'Product Management with Gen AI',
     side: 'right' as const,
+    color: '#39FF14', // Neon Green - current
   },
   {
     year: '2025',
     title: 'Scaler Academy',
     description: 'DSA, SQL, System Design',
     side: 'left' as const,
+    color: '#FFD700', // Golden Yellow
   },
   {
     year: '2023-24',
     title: 'Tata Elxsi',
     description: 'Backend Developer Intern - NTG Unit',
     side: 'right' as const,
+    color: '#FF8C00', // Burnt Orange
   },
   {
     year: '2020-24',
     title: 'R.M.K. Engineering College',
     description: "Bachelor's in Engineering",
     side: 'left' as const,
+    color: '#FF4500', // Vibrant Red - start
   },
 ];
 
@@ -184,24 +188,16 @@ const About = () => {
             <div className="relative">
               {/* Bamboo Stalk - Central Line */}
               <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1">
-                {/* Main stem with gradient */}
+                {/* Main stem with progression gradient (bottom to top) */}
                 <div 
-                  className={`w-full h-full bg-gradient-to-b from-zen-neon via-primary to-zen-neon rounded-full transition-all duration-1000 ${
+                  className={`w-full h-full rounded-full transition-all duration-1000 ${
                     isVisible ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
                   }`}
-                  style={{ transformOrigin: 'top' }}
+                  style={{ 
+                    transformOrigin: 'top',
+                    background: 'linear-gradient(to top, #FF4500 0%, #FF8C00 33%, #FFD700 66%, #39FF14 100%)'
+                  }}
                 />
-                
-                {/* Bamboo nodes */}
-                {[0, 25, 50, 75].map((pos) => (
-                  <div
-                    key={pos}
-                    className={`absolute left-1/2 -translate-x-1/2 w-3 h-1 bg-zen-neon/60 rounded-full transition-all duration-500 ${
-                      isVisible ? 'opacity-100' : 'opacity-0'
-                    }`}
-                    style={{ top: `${pos}%`, transitionDelay: `${800 + pos * 10}ms` }}
-                  />
-                ))}
               </div>
 
               {/* Timeline Items */}
@@ -219,13 +215,28 @@ const About = () => {
                     {/* Content Card */}
                     <div 
                       className={`flex-1 p-5 bg-card/50 border border-border/50 rounded-lg 
-                        hover:border-zen-neon/50 hover:bg-card/80 transition-all duration-300 group
+                        hover:bg-card/80 transition-all duration-300 group
                         ${item.side === 'left' ? 'text-right' : 'text-left'}`}
+                      style={{ 
+                        ['--hover-color' as string]: item.color,
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.borderColor = `${item.color}50`;
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.borderColor = '';
+                      }}
                     >
-                      <span className="text-xs font-mono text-zen-neon tracking-wider">
+                      <span 
+                        className="text-xs font-mono tracking-wider"
+                        style={{ color: item.color }}
+                      >
                         {item.year}
                       </span>
-                      <h4 className="font-serif font-medium text-foreground text-lg mt-1 group-hover:text-zen-neon transition-colors">
+                      <h4 
+                        className="font-serif font-medium text-foreground text-lg mt-1 transition-colors"
+                        style={{ ['--item-color' as string]: item.color }}
+                      >
                         {item.title}
                       </h4>
                       <p className="text-sm text-muted-foreground mt-1">
@@ -234,15 +245,25 @@ const About = () => {
                     </div>
 
                     {/* Center Node */}
-                    <div className="relative z-10 flex-shrink-0">
-                      <div className="w-4 h-4 rounded-full bg-background border-2 border-zen-neon group-hover:bg-zen-neon transition-colors" />
+                    <div className="relative z-10 flex-shrink-0 group">
+                      <div 
+                        className="w-4 h-4 rounded-full bg-background transition-all duration-300"
+                        style={{ 
+                          borderWidth: '2px',
+                          borderStyle: 'solid',
+                          borderColor: item.color,
+                          boxShadow: `0 0 10px ${item.color}40`
+                        }}
+                      />
                       {/* Branch line */}
                       <div 
-                        className={`absolute top-1/2 -translate-y-1/2 h-px w-8 bg-gradient-to-r ${
-                          item.side === 'left' 
-                            ? 'right-full from-transparent to-zen-neon/50' 
-                            : 'left-full from-zen-neon/50 to-transparent'
-                        }`}
+                        className="absolute top-1/2 -translate-y-1/2 h-px w-8"
+                        style={{
+                          background: item.side === 'left' 
+                            ? `linear-gradient(to right, transparent, ${item.color}50)` 
+                            : `linear-gradient(to left, transparent, ${item.color}50)`,
+                          [item.side === 'left' ? 'right' : 'left']: '100%'
+                        }}
                       />
                     </div>
 
