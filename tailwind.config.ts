@@ -68,6 +68,8 @@ export default {
           gold: "hsl(var(--zen-gold))",
           crimson: "hsl(var(--zen-crimson))",
           bamboo: "hsl(var(--zen-bamboo))",
+          neon: "hsl(var(--zen-neon))",
+          "neon-glow": "hsl(var(--zen-neon-glow))",
         },
       },
       borderRadius: {
